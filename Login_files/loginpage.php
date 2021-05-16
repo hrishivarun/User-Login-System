@@ -2,7 +2,7 @@
 include 'db_connect.php';
 ?>
 
-//HTML code 
+<!--HTML code --> 
 <!DOCTYPE HTML>
 <html>
 <head>
