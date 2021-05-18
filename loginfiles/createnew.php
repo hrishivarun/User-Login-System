@@ -9,4 +9,7 @@ include_once 'db_connect.php';
         <title>Create new account</title>
         <link rel="stylesheet" href="CSS.css">
     </head>
+    <body>
+        
+    </body>
 </html>
