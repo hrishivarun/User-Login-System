@@ -9,7 +9,8 @@ include 'loginfiles\db_connect.php';
 <meta name="viewport", content="width=device-width, initial-scale=1.0"> 
 
 <title>Connect Here</title>
-<link rel="stylesheet" href="CSS.css">
+<link rel="stylesheet" href="CSS.css"/>
+
 <style>
 html {
     background-color: rgba(63, 191, 255, .3);
@@ -45,22 +46,37 @@ input{
 }
 </style>
 </head>
+
 <body>
     <div class="header"><button  formaction="loginfiles\createnew.php">Create an account</button></div> <br/>
     (Already have an account with us?) Sign-in below :
     <div class="outer">
-    <div class="inner">
-<form action="welcomepage.php" method="post">
-    <div class="label">Username/Email:</div>    <input type="text" name="username" placeholder="blabbermouth" required autofocus> <br/>
-    <div class="label">Password:</div>          <input type="password" name="password" placeholder="blabber@mouth" required> <br/> <br/>
-    <input type="submit" value="Login">
-</form> 
-</div>
-</div> 
-
-<?php 
-$uid=$_POST['username'];
-$pwd=$_POST['password'];
-?>
+        <div class="inner">
+            <form action="welcomepage.php" method="POST">
+                <div class="label">Username/Email:</div>    
+                <input type="text" name="uname" placeholder="blabbermouth" required autofocus> <br/>
+                <div class="label">Password:</div>          
+                <input type="password" name="pword" placeholder="blabber@mouth" required> <br/> <br/>
+                <input type="submit" value="Login">
+            </form> 
+        </div>
+    </div> 
 </body>
 </html>
+
+<?php  
+if(isset($_POST['uname']) && isset($_POST['pword'])) {
+$uid= $_POST['uname'];
+$pwd= $_POST['pword'];
+if(isset($uid)) {
+    $query= "SELECT password FROM logindata WHERE username='$uid' ";
+    $result= mysqli_query($conn, $query); 
+        while($ans= mysqli_fetch_assoc($result)) {
+            if($ans['password']==$pwd) {
+                header('location: welcompage.php');
+            } else {
+                header('location: error.php');
+            }
+        }
+    }  
+}
