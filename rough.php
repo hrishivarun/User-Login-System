@@ -1,8 +1,15 @@
 <?php 
-include 'db_connect.php';
+include 'loginfiles/db_connect.php';
+/*
+CREATE TABLE `data`.`userdata` ( `ServerID` INT(5) NOT NULL , `Username` VARCHAR(255) on update CURRENT_TIMESTAMP NOT NULL , `Password`
+ VARCHAR(255) on update CURRENT_TIMESTAMP NOT NULL , `Name` VARCHAR(255) on update CURRENT_TIMESTAMP NULL DEFAULT NULL , `CollegeID`
+ INT NULL DEFAULT NULL , `Branch` VARCHAR(255) NULL DEFAULT NULL , `Jfield` VARCHAR(255) NULL DEFAULT NULL , `Company` VARCHAR(255)
+ NULL DEFAULT NULL , `Email` VARCHAR(255) NULL DEFAULT NULL , `Contact` INT(10) NULL DEFAULT NULL , `ProfilePic` BLOB NULL DEFAULT NULL
+, UNIQUE `Username` (`Username`), UNIQUE `CollegeID` (`CollegeID`), UNIQUE `Email` (`Email`), UNIQUE `ContactNumber` (`Contact`)) ENGINE
+ = InnoDB;  
+*/
 
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -81,7 +88,7 @@ include 'db_connect.php';
                         <input type="password" name="confirmpword" placeholder="blabbe@rmouth" required>
                     </div>
                     <br><br>
-                    <button>Proceed</button>
+                    <button>proceed</button>
                 </div>
                 <br><br>
             </form>
@@ -89,16 +96,10 @@ include 'db_connect.php';
     </body>
 </html>
 <?php 
-
-
+/*
 if(isset($_POST['pword']) && isset($_POST['pword']) && isset($_POST['confirmpword'])) {
-    if($_POST['pword']!=$_POST['confirmpword']){
-        echo "Passwords don't fucking match man!";
-    } else{
-        $_SESSION['Uname']= $_POST['uname']; $Uname= $_SESSION['Uname'];
-        $_SESSION['pwd']= $_POST['pword']; $pwd= $_SESSION['pwd'];
-        $query= "INSERT INTO userdata (username, password) VALUES ('$Uname', '$pwd')";
-        mysqli_query($db, $query);
-    }
+    $Uname= $_POST['uname'];
+    $pwd= $_POST['pword'];
+    $query= "INSERT INTO logindata (name, password) VALUES ('$Uname', '$pwd')";
 
-}
+}*/
