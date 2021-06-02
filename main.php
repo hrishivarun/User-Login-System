@@ -13,41 +13,16 @@ $db = mysqli_connect('localhost', 'root','', 'data') or die("!Error. Can't conne
 <link rel="stylesheet" href="CSS.css"/>
 
 <style>
-html {
-    background-color: rgba(63, 191, 255, .3);
-}
-
-.header{
-    width: 100%;
-    height: 30%;
-    background-color: seagreen;
-}
-input{
-    width: 200px;
-    height: 30px;
-    border-radius: 10px;
-}
-
-
-.outer{
-    display:flex;
-    justify-content: center;
-}
-.label{
-    color:white;
-}
-
-
-
-body {
+            html{
+                background-color: rgba(63, 191, 255, .3);
+            }
+            body{
                 background-color: white;
                 border-radius: 50px;
                 padding: 5%;
             }
-            form {
-               
-                
-                background-color: darkgreen;
+            form{
+                background-color: midnightblue;
                 border-radius: 30px;
                 padding: 3% 5%;
                 margin: 0 auto;
@@ -90,9 +65,7 @@ body {
 
 <body>
     <div class="outer">
-        <form action="createnew.php">
-        <button  type="submit">Create an account</button>
-        </form>    
+        <button><a href="createnew.php"><strong>Create new account</strong></a></button>    
     </div> <br/>
     (Already have an account with us?) Sign-in below :<br/><br/><br/>
             <form  method="POST" action= "server.php" autocomplete="off">

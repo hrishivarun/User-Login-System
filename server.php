@@ -31,8 +31,10 @@ if(!empty($_POST['Uname'])){
         $result1= mysqli_query($db, $query);
         $query="SELECT * FROM multidata WHERE email= '$Email' OR contact= '$Contact' LIMIT 1";
         $result2= mysqli_query($db, $query);
-        if(mysqli_fetch_row($result1) || mysqli_fetch_row($result2)){
-            echo "Username/Email/Contact already exists. Click <a href='createnew.php'>here</a> to register again with different details."; }
+        if(mysqli_fetch_row($result1)){
+            echo "Username already exists. Click <a href='createnew.php'>here</a> to register again with another username.";}
+        elseif(mysqli_fetch_row($result2)){
+            echo "Email/Contact already exists. Click <a href='createnew.php'>here</a> to register again with different email/contact.";}
         else{
             $query="INSERT INTO multidata (username, email, contact) VALUES ('$Uname', '$Email', '$Contact')";
             mysqli_query($db, $query);

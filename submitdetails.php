@@ -7,15 +7,18 @@
                 <title>Create new account</title>
                 <link rel="stylesheet" href="CSS.css">
                 <style>
-                   body {
+                    html{
+                        background-color: rgba(63, 191, 255, .3);
+                    }
+                   body{
                         background-color: white;
                         border-radius: 50px;
                         padding: 5%;
                     }
-                    form {
+                    form{
                        
                         
-                        background-color: darkgreen;
+                        background-color: midnightblue;
                         border-radius: 30px;
                         padding: 3% 5%;
                         margin: 0 auto;
