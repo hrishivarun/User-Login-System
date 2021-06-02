@@ -1,8 +1,3 @@
-<?php 
-include 'db_connect.php';
-
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -63,42 +58,40 @@ include 'db_connect.php';
 
     <body>
         <div class="container">
-            <form action="submitdetails.php" method="POST" class="form">
+            <form method="POST" action="server.php" autocomplete="off">
             
                 <div class="outer">
                     <div class="inner">
+                            <div class="script">Name:  </div>
+                            <input type="text" placeholder="Rampal" name="Name" autofocus>
+                        </div> <br/><br/>
+                    <div class="inner">
+                            <div class="script">Email ID:</div>
+                            <input type="email" name="Email" placeholder="18124@iiitu.ac.in">
+                        </div> <br/><br/>
+                        <div class="inner">
+                            <div class="script">Contact-Number: </div>
+                            <input type="number" name="Contact" placeholder="9650820522">
+                        </div> <br/><br/>
+                    <div class="inner">
                         <div class="script">Create an unique username:</div>
-                        <input type="text" name="name" placeholder="blabbermouth" required autofocus>
+                        <input type="text" name="Uname" placeholder="blabbermouth">
                         </div>
                         <br><br>
                      <div class="inner">
                         <div class="script">Create user password:</div>
-                        <input type="password" name="pword" placeholder="blabbe@rmouth" required>
+                        <input type="password" name="Pword" placeholder="blabbe@rmouth">
                     </div>
                     <br><br>
                     <div class="inner">
                         <div class="script">Confirm password:</div>
-                        <input type="password" name="confirmpword" placeholder="blabbe@rmouth" required>
+                        <input type="password" name="Confirmpword" placeholder="blabbe@rmouth">
                     </div>
                     <br><br>
-                    <button>Proceed</button>
+                    <button type="submit" name="submit" value="submit">Proceed</button>
                 </div>
                 <br><br>
             </form>
         </div>
     </body>
 </html>
-<?php 
-
-
-if(isset($_POST['pword']) && isset($_POST['pword']) && isset($_POST['confirmpword'])) {
-    if($_POST['pword']!=$_POST['confirmpword']){
-        echo "Passwords don't fucking match man!";
-    } else{
-        $_SESSION['Uname']= $_POST['uname']; $Uname= $_SESSION['Uname'];
-        $_SESSION['pwd']= $_POST['pword']; $pwd= $_SESSION['pwd'];
-        $query= "INSERT INTO userdata (username, password) VALUES ('$Uname', '$pwd')";
-        mysqli_query($db, $query);
-    }
-
-}

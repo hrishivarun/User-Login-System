@@ -1,6 +1,8 @@
 <?php 
-include 'loginfiles\db_connect.php';
-
+session_start();
+$db = mysqli_connect('localhost', 'root','', 'data') or die("!Error. Can't connect to database.");
+    
+    
 ?>
 
 <!DOCTYPE html>

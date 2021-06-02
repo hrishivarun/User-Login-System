@@ -1,5 +1,6 @@
 <?php 
-include 'loginfiles\db_connect.php';
+session_start();
+$db = mysqli_connect('localhost', 'root','', 'data') or die("!Error. Can't connect to database.");
 ?>
 
 <!--HTML code --> 
@@ -89,12 +90,12 @@ body {
 
 <body>
     <div class="outer">
-        <form action="loginfiles\createnew.php">
+        <form action="createnew.php">
         <button  type="submit">Create an account</button>
         </form>    
     </div> <br/>
     (Already have an account with us?) Sign-in below :<br/><br/><br/>
-            <form action="welcomepage.php" method="POST">
+            <form  method="POST" action= "server.php" autocomplete="off">
                 <div class="outer">
                     <div class="inner">
                         <div class="script">Username/Email:</div>    
@@ -104,7 +105,7 @@ body {
                         <div class="script">Password:</div>          
                         <input type="password" name="pword" placeholder="blabber@mouth" required>
                     </div> <br/> <br/>
-                    <button type="submit">Submit</button>
+                    <button type="submit" name="submit">Submit</button>
                 </div>
             </form> 
 </body>
@@ -112,17 +113,9 @@ body {
 
 <?php  
 if(isset($_POST['uname']) && isset($_POST['pword'])) {
-$uid= $_POST['uname'];
-$pwd= $_POST['pword'];
+
 if(isset($uid)) {
-    $query= "SELECT password FROM logindata WHERE username='$uid' ";
-    $result= mysqli_query($db, $query); 
-        while($ans= mysqli_fetch_assoc($result)) {
-            if($ans['password']==$pwd) {
-                header('location: welcompage.php');
-            } else {
-               echo "Wrong login details.";
-            }
-        }
+    
+        
     }  
 }
