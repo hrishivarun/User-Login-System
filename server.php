@@ -28,8 +28,11 @@ if(!empty($_POST['Uname'])){
     if($Pword!=$Pwordconfirm){echo "Passwords don't match. Click <a href='createnew.php'>here</a> to register again "; }
     else{
         $query="SELECT * FROM userdata WHERE username= '$Uname' LIMIT 1";
-        $result= mysqli_query($db, $query);
-        if(mysqli_fetch_row($result)){ echo "Username already exists. Click <a href='createnew.php'>here</a> to register again with another username."; }
+        $result1= mysqli_query($db, $query);
+        $query="SELECT * FROM multidata WHERE email= '$Email' LIMIT 1";
+        $result2= mysqli_query($db, $query);
+        if(mysqli_fetch_row($result1) || mysqli_fetch_row($result2)){
+            echo "Username or Email already exists. Click <a href='createnew.php'>here</a> to register again with another username."; }
         else{
             $query="INSERT INTO multidata (username, email, contact) VALUES ('$Uname', '$Email', '$Contact')";
             mysqli_query($db, $query);
